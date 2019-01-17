@@ -11,7 +11,7 @@ duracion = StringVar()
 anio = StringVar()
 conteliminar = StringVar()
 colorFondo = "#110"
-colorLetra = "blue"
+colorLetra = "black"
 ventana.title("CINE")
 ventana.geometry("700x500")
 ventana.configure(background = colorFondo)
