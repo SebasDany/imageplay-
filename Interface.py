@@ -10,9 +10,9 @@ descripcion = StringVar()
 duracion = StringVar()
 anio = StringVar()
 conteliminar = StringVar()
-colorFondo = "#110"
-colorLetra = "black"
-ventana.title("CINE")
+colorFondo = "BLACK"
+colorLetra = "WHITE"
+ventana.title("CINE PELIS")
 ventana.geometry("700x500")
 ventana.configure(background = colorFondo)
 etiquetaTitulo= Label(ventana, text="REGISTRO PELICULAS",
