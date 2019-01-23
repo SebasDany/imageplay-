@@ -12,34 +12,32 @@ anio = StringVar()
 conteliminar = StringVar()
 colorFondo = "BLACK"
 colorLetra = "WHITE"
-ventana.title("CINE PELIS")
-ventana.geometry("700x500")
+ventana.title("Imge Play")
+ventana.geometry("800x500")
 ventana.configure(background = colorFondo)
-etiquetaTitulo= Label(ventana, text="REGISTRO PELICULAS",
-                      bg="red", fg=colorFondo,width=50).place(x=150,y=10)
-etiquetaG= Label(ventana, text="Genero", bg=colorFondo,
-                 fg=colorLetra).place(x=50, y=50)
-combo= ttk.Combobox(ventana,textvariable=genero,width=47)
-combo.place(x=150, y=50)
+etiquetaTitulo= Label(ventana, text="Bienvenido",
+                      bg="red", fg=colorFondo,width=60).place(x=150,y=10)
 
 
-etiquetaT = Label(ventana, text="Titulo", bg=colorFondo,
-                  fg=colorLetra).place(x=50, y=80)
-cajaT = Entry(ventana, textvariable=titulo, width=50).place(x=150, y=80)
-etiquetaD = Label(ventana, text="Descripcion", bg=colorFondo,
-                  fg=colorLetra).place(x=50, y=110)
-cajaD = Entry(ventana, textvariable=descripcion,width=50).place(x=150, y=110)
-etiquetaAnio = Label(ventana, text="Anio", bg=colorFondo,
-                  fg=colorLetra).place(x=50, y=140)
-cajaAnio = Entry(ventana, textvariable=anio,width=50).place(x=150, y=140)
-etiquetaDura = Label(ventana, text="Duracion", bg=colorFondo,
-                  fg=colorLetra).place(x=50, y=170)
-cajaDura = Entry(ventana, textvariable=duracion,width=50).place(x=150, y=170)
-botoGuardar = Button(ventana, text="Guardar   ", bg="#009",
-                     fg="White").place(x=480, y=100)
-botoConsultar = Button(ventana, text="Consultar", bg="#009",
-                       fg="white").place(x=480, y=150)
-r = Text(ventana, width=80, height=15)
+
+
+botoGuardar = Button(ventana, text="SELECCIONANR UNA IMAGEN", bg="#009",width=35, height=1,
+                     fg="White" ).place(x=450, y=100)
+botoConsultar = Button(ventana, text="AÑADIR DESCRIPCION  IMAGEN", bg="#009",width=35, height=1,
+                       fg="white").place(x=450, y=150)
+
+botoConsultar = Button(ventana, text="AÑADIR NOMBRE DE LA  IMAGEN", bg="#009",width=35, height=1,
+                       fg="white").place(x=450, y=200)
+etiquetaT = Label(ventana, text="DESCRIPCION DE LA IMAGEN", bg=colorFondo,
+                  fg=colorLetra,width=35, height=1).place(x=450, y=250)
+cajaT = Entry(ventana, textvariable=titulo, width=40).place(x=450, y=300)
+
+botoConsultar = Button(ventana, text="INICIAR", bg="#009",width=35, height=1,
+                       fg="white").place(x=450, y=350)
+botoConsultar = Button(ventana, text="SALIR", bg="#009",width=35, height=1,
+                       fg="white").place(x=450, y=400)
+
+r = Text(ventana, width=50 )
 r.insert(INSERT, "IMAGE")
-r.place(x=20, y=230)
+r.place(x=20, y=60)
 mainloop()
