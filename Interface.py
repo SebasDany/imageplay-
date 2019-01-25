@@ -21,7 +21,7 @@ botoGuardar = Button(ventana, text="SELECCIONANR UNA IMAGEN", bg="#009",width=35
                      fg="White" ).place(x=450, y=100)
 
 
-etiquetaT = Label(ventana, text="NOMBRE DE LA IMAGEN", bg=colorFondo,
+etiquetaT = Label(ventana, text="NOMBRE DE LA imagen", bg=colorFondo,
                   fg=colorLetra,width=35, height=1).place(x=450, y=150)
 cajaT = Entry(ventana, textvariable=titulo, width=40).place(x=450, y=175)
 
