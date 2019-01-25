@@ -28,7 +28,7 @@ cajaT = Entry(ventana, textvariable=titulo, width=40).place(x=450, y=175)
 
 botoConsultar = Button(ventana, text="AÑADIR NOMBRE DE LA  IMAGEN", bg="#009",width=35, height=1,
                        fg="white").place(x=450, y=200)
-etiquetaT = Label(ventana, text="DESCRIPCION DE LA IMAGEN", bg=colorFondo,
+etiquetaT = Label(ventana, text="Descripcion de la imagen", bg=colorFondo,
                   fg=colorLetra,width=35, height=1).place(x=450, y=250)
 cajaT = Entry(ventana, textvariable=titulo, width=40).place(x=450, y=275)
 
