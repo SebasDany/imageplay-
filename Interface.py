@@ -15,7 +15,7 @@ colorLetra = "WHITE"
 ventana.title("Imge Play")
 ventana.geometry("800x500")
 ventana.configure(background = colorFondo)
-etiquetaTitulo= Label(ventana, text="Bienvenido",
+etiquetaTitulo= Label(ventana, text="Bienvenid@s",
                       bg="red", fg=colorFondo,width=60).place(x=150,y=10)
 botoGuardar = Button(ventana, text="SELECCIONANR UNA IMAGEN", bg="#009",width=35, height=1,
                      fg="White" ).place(x=450, y=100)
