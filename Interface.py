@@ -4,11 +4,15 @@ from tkinter import messagebox
 from tkinter import ttk
 from tkinter.filedialog import askopenfilename
 
+a=""
 def chose():
     Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
     filename = askopenfilename()  # show an "Open" dialog box and return the path to the selected file
     print(filename)
+    a=filename
 
+
+a=" "
 ventana = Tk()
 
 genero = StringVar()
@@ -47,7 +51,7 @@ botoConsultar = Button(ventana, text="Guardar", bg="#009",width=35, height=1,
 botoConsultar = Button(ventana, text="SALIR", bg="#009",width=35, height=1,
                        fg="white").place(x=450, y=400)
 
-im=PhotoImage(file="descarga.png")
+im=PhotoImage(file=a)
 fond=Label(ventana,image=im,  width=400,height=400).place(x=20,y=60)
 im1=PhotoImage(file="nula.png")
 etiqueta=Label(ventana,image=im1,  width=200,height=200).place(x=220,y=60)
