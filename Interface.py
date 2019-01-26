@@ -4,7 +4,7 @@ from tkinter import messagebox
 from tkinter import ttk
 from tkinter.filedialog import askopenfilename
 
-a=""
+
 def chose():
     Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
     filename = askopenfilename()  # show an "Open" dialog box and return the path to the selected file
@@ -12,7 +12,23 @@ def chose():
     a=filename
 
 
-a=" "
+def center(win):
+    """
+    centers a tkinter window
+    :param win: the root or Toplevel window to center
+    """
+    win.update_idletasks()
+    width = win.winfo_width()
+    frm_width = win.winfo_rootx() - win.winfo_x()
+    win_width = width + 2 * frm_width
+    height = win.winfo_height()
+    titlebar_height = win.winfo_rooty() - win.winfo_y()
+    win_height = height + titlebar_height + frm_width
+    x = win.winfo_screenwidth() // 2 - win_width // 2
+    y = win.winfo_screenheight() // 2 - win_height // 2
+    win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+    win.deiconify()
+
 ventana = Tk()
 
 genero = StringVar()
@@ -21,44 +37,61 @@ descripcion = StringVar()
 duracion = StringVar()
 anio = StringVar()
 conteliminar = StringVar()
-colorFondo = "BLACK"
-colorLetra = "WHITE"
+colorFondo = "WHITE"
+colorLetra = "BLACK"
+colorBotones = "SpringGreen3"
 ventana.title("Imge Play")
-ventana.geometry("800x500")
+ventana.geometry("800x698")
 ventana.configure(background = colorFondo)
 etiquetaTitulo= Label(ventana, text="Bienvenido",
-                      bg="red", fg=colorFondo,width=60).place(x=150,y=10)
-botoGuardar = Button(ventana, text="SELECCIONANR UNA IMAGEN",command=chose, bg="#009",width=35, height=1,
-                     fg="White" ).place(x=450, y=100)
+                      bg="teal", fg=colorFondo,width=60).place(x=190,y=10)
+botonSeIma = Button(ventana, text="SELECCIONAR UNA IMAGEN", command=chose, bg=colorBotones, width=35, height=1,
+                    fg=colorLetra).place(x=450, y=60)
+botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose, bg=colorBotones, width=35, height=1,
+                    fg=colorLetra).place(x=450, y=100)
 
 
-etiquetaT = Label(ventana, text="NOMBRE DE LA IMAGEN", bg=colorFondo,
+etiquetaT1 = Label(ventana, text="NOMBRE DE LA IMAGEN", bg=colorFondo,
                   fg=colorLetra,width=35, height=1).place(x=450, y=150)
-cajaT = Entry(ventana, textvariable=titulo, width=40).place(x=450, y=175)
+cajanombre = Entry(ventana, textvariable=titulo, width=40).place(x=450, y=175)
 
 
-botoConsultar = Button(ventana, text="AÑADIR NOMBRE DE LA  IMAGEN", bg="#009",width=35, height=1,
-                       fg="white").place(x=450, y=200)
-etiquetaT = Label(ventana, text="DESCRIPCION DE LA IMAGEN", bg=colorFondo,
+botoimagenins = Button(ventana, text="AÑADIR NOMBRE DE LA  IMAGEN", bg=colorBotones,width=35, height=1,
+                       fg=colorLetra).place(x=450, y=200)
+etiquetaT2 = Label(ventana, text="DESCRIPCIÓN DE LA IMAGEN", bg=colorFondo,
                   fg=colorLetra,width=35, height=1).place(x=450, y=250)
-cajaT = Entry(ventana, textvariable=titulo, width=40).place(x=450, y=275)
+cajadescripcion = Entry(ventana, textvariable=titulo, width=40).place(x=450, y=275)
 
-botoConsultar = Button(ventana, text="AÑADIR DESCRIPCION  IMAGEN", bg="#009",width=35, height=1,
-                       fg="white").place(x=450, y=300)
+botoimagendes = Button(ventana, text="AÑADIR DESCRIPCIÓN DE LA IMAGEN", bg=colorBotones,width=35, height=1,
+                       fg=colorLetra).place(x=450, y=300)
+etiquetaT3 = Label(ventana, text="Complete en  la parte de abajo\n el nombre de la imagen \n correspondiente para que así\n vaya destapando la imagen poco a poco :)", bg=colorFondo,
+                  fg=colorLetra,width=50, height=5).place(x=400, y=330)
 
-botoConsultar = Button(ventana, text="Guardar", bg="#009",width=35, height=1,
-                       fg="white").place(x=450, y=350)
-botoConsultar = Button(ventana, text="SALIR", bg="#009",width=35, height=1,
-                       fg="white").place(x=450, y=400)
 
-im=PhotoImage(file=a)
-fond=Label(ventana,image=im,  width=400,height=400).place(x=20,y=60)
+scrollbar = Scrollbar(ventana)
+
+mylist = Listbox(ventana, yscrollcommand = scrollbar.set )
+mylist.insert(END, "Universidad del Ecuador")
+
+scrollbar.config( command = mylist.yview )
+
+
+
+
+cajajugar = Entry(ventana, textvariable=titulo, width=50).place(x=450, y=580)
+botoConsultar = Button(ventana, text="Guardar", bg=colorBotones,width=20, height=1,
+                       fg=colorLetra).place(x=450, y=665)
+botoConsultar = Button(ventana, text="SALIR", bg=colorBotones,width=20, height=1,
+                       fg=colorLetra).place(x=610, y=665)
+
+im=PhotoImage(file="descarga.png")
+fond=Label(ventana,image=im,  width=400,height=610).place(x=20,y=60)
 im1=PhotoImage(file="nula.png")
 etiqueta=Label(ventana,image=im1,  width=200,height=200).place(x=220,y=60)
 im2=PhotoImage(file="nula.png")
-etiqueta=Label(ventana,image=im2,  width=200,height=200).place(x=20,y=260)
+etiqueta=Label(ventana,image=im2,  width=200,height=300).place(x=20,y=260)
 im3=PhotoImage(file="nula.png")
 etiqueta=Label(ventana,image=im3,  width=200,height=200).place(x=20,y=60)
 
-
+center(ventana)
 mainloop()
