@@ -45,53 +45,61 @@ ventana.geometry("800x698")
 ventana.configure(background = colorFondo)
 etiquetaTitulo= Label(ventana, text="Bienvenido",
                       bg="teal", fg=colorFondo,width=60).place(x=190,y=10)
-botonSeIma = Button(ventana, text="SELECCIONAR UNA IMAGEN", command=chose, bg=colorBotones, width=35, height=1,
+botonSeIma = Button(ventana, text="SELECCIONAR UNA IMAGEN", command=chose, bg=colorBotones, width=40, height=1,
                     fg=colorLetra).place(x=450, y=60)
-botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose, bg=colorBotones, width=35, height=1,
+botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose, bg=colorBotones, width=40, height=1,
                     fg=colorLetra).place(x=450, y=100)
 
 
 etiquetaT1 = Label(ventana, text="NOMBRE DE LA IMAGEN", bg=colorFondo,
                   fg=colorLetra,width=35, height=1).place(x=450, y=150)
-cajanombre = Entry(ventana, textvariable=titulo, width=40).place(x=450, y=175)
+
+cajanombre = Text(ventana, height=1, width=40).place(x=450, y=175)
 
 
-botoimagenins = Button(ventana, text="AÑADIR NOMBRE DE LA  IMAGEN", bg=colorBotones,width=35, height=1,
+botoimagenins = Button(ventana, text="AÑADIR NOMBRE DE LA  IMAGEN", bg=colorBotones,width=40, height=1,
                        fg=colorLetra).place(x=450, y=200)
+
 etiquetaT2 = Label(ventana, text="DESCRIPCIÓN DE LA IMAGEN", bg=colorFondo,
                   fg=colorLetra,width=35, height=1).place(x=450, y=250)
-cajadescripcion = Entry(ventana, textvariable=titulo, width=40).place(x=450, y=275)
 
-botoimagendes = Button(ventana, text="AÑADIR DESCRIPCIÓN DE LA IMAGEN", bg=colorBotones,width=35, height=1,
+cajadescripcion = Text(ventana, height=1, width=40).place(x=450, y=275)
+
+botoimagendes = Button(ventana, text="AÑADIR DESCRIPCIÓN DE LA IMAGEN", bg=colorBotones,width=40, height=1,
                        fg=colorLetra).place(x=450, y=300)
 etiquetaT3 = Label(ventana, text="Complete en  la parte de abajo\n el nombre de la imagen \n correspondiente para que así\n vaya destapando la imagen poco a poco :)", bg=colorFondo,
                   fg=colorLetra,width=50, height=5).place(x=400, y=330)
 
+etiquetaT3 = Label(ventana, text="Descripción de la Imagen: ", bg=colorFondo,
+                  fg=colorLetra,width=50, height=1).place(x=400, y=410)
 
-scrollbar = Scrollbar(ventana)
-
-mylist = Listbox(ventana, yscrollcommand = scrollbar.set )
-mylist.insert(END, "Universidad del Ecuador")
-
-scrollbar.config( command = mylist.yview )
+etiquetaT3 = Label(ventana, text="Universidad del Ecuador ", bg=colorFondo,
+                  fg=colorLetra,width=50, height=5).place(x=400, y=430)
 
 
 
 
-cajajugar = Entry(ventana, textvariable=titulo, width=50).place(x=450, y=580)
-botoConsultar = Button(ventana, text="Guardar", bg=colorBotones,width=20, height=1,
-                       fg=colorLetra).place(x=450, y=665)
-botoConsultar = Button(ventana, text="SALIR", bg=colorBotones,width=20, height=1,
+
+cajajugar =  Text(ventana, height=5, width=40).place(x=450, y=550)
+botoFinaliza = Button(ventana, text="FINALIZAR", bg=colorBotones,width=20, height=1,
                        fg=colorLetra).place(x=610, y=665)
+botoIntentar = Button(ventana, text="VOLVER A INTENTAR", bg=colorBotones,width=20, height=1,
+                       fg=colorLetra).place(x=450, y=665)
+
 
 im=PhotoImage(file="descarga.png")
 fond=Label(ventana,image=im,  width=400,height=610).place(x=20,y=60)
 im1=PhotoImage(file="nula.png")
 etiqueta=Label(ventana,image=im1,  width=200,height=200).place(x=220,y=60)
-im2=PhotoImage(file="nula.png")
-etiqueta=Label(ventana,image=im2,  width=200,height=300).place(x=20,y=260)
+
 im3=PhotoImage(file="nula.png")
 etiqueta=Label(ventana,image=im3,  width=200,height=200).place(x=20,y=60)
+im2=PhotoImage(file="nula.png")
+etiqueta=Label(ventana,image=im2,  width=200,height=200).place(x=20,y=260)
+im4=PhotoImage(file="nula.png")
+etiqueta=Label(ventana,image=im4,  width=200,height=200).place(x=20,y=463)
+im5=PhotoImage(file="nula.png")
+etiqueta=Label(ventana,image=im5,  width=200,height=200).place(x=220,y=463)
 
 center(ventana)
 mainloop()
