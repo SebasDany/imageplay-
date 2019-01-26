@@ -46,7 +46,7 @@ cajaT = Entry(ventana, textvariable=titulo, width=40).place(x=450, y=275)
 botoConsultar = Button(ventana, text="AÑADIR DESCRIPCION  IMAGEN", bg="#009",width=35, height=1,
                        fg="white").place(x=450, y=300)
 
-botoConsultar = Button(ventana, text="INICIAR", bg="#009",width=35, height=1,
+botoConsultar = Button(ventana, text="Guardar", bg="#009",width=35, height=1,
                        fg="white").place(x=450, y=350)
 botoConsultar = Button(ventana, text="SALIR", bg="#009",width=35, height=1,
                        fg="white").place(x=450, y=400)
