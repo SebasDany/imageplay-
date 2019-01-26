@@ -10,6 +10,20 @@ def chose():
     filename = askopenfilename()  # show an "Open" dialog box and return the path to the selected file
     print(filename)
     a=filename
+    imh = PhotoImage(file=a)
+    w = Label(ventana, image=imh, width=400, height=610).place(x=20, y=60)
+    im1 = PhotoImage(file="nula.png")
+    etiqueta = Label(ventana, image=im1, width=200, height=200).place(x=220, y=60)
+
+    im3 = PhotoImage(file="nula.png")
+    etiqueta = Label(ventana, image=im3, width=200, height=200).place(x=20, y=60)
+    im2 = PhotoImage(file="nula.png")
+    etiqueta = Label(ventana, image=im2, width=200, height=200).place(x=20, y=260)
+    im4 = PhotoImage(file="nula.png")
+    etiqueta = Label(ventana, image=im4, width=200, height=200).place(x=20, y=463)
+    im5 = PhotoImage(file="nula.png")
+    etiqueta = Label(ventana, image=im5, width=200, height=200).place(x=220, y=463)
+    w.pack()
 
 
 def center(win):
