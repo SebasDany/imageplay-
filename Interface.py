@@ -12,7 +12,7 @@ def chose():
     a=filename
 
 
-
+a=" "
 ventana = Tk()
 
 genero = StringVar()
