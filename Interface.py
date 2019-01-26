@@ -49,6 +49,12 @@ botoConsultar = Button(ventana, text="SALIR", bg="#009",width=35, height=1,
 
 im=PhotoImage(file="descarga.png")
 fond=Label(ventana,image=im,  width=400,height=400).place(x=20,y=60)
+im1=PhotoImage(file="nula.png")
+etiqueta=Label(ventana,image=im1,  width=200,height=200).place(x=220,y=60)
+im2=PhotoImage(file="nula.png")
+etiqueta=Label(ventana,image=im2,  width=200,height=200).place(x=20,y=260)
+im3=PhotoImage(file="nula.png")
+etiqueta=Label(ventana,image=im3,  width=200,height=200).place(x=20,y=60)
 
 
 mainloop()
