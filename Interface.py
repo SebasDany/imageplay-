@@ -54,16 +54,16 @@ botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose,
 etiquetaT1 = Label(ventana, text="NOMBRE DE LA IMAGEN", bg=colorFondo,
                   fg=colorLetra,width=35, height=1).place(x=450, y=150)
 
-cajanombre = Text(ventana, height=1, width=40).place(x=450, y=175)
+cajanombre = Text(ventana, height=1, width=36).place(x=450, y=175)
 
 
 botoimagenins = Button(ventana, text="AÑADIR NOMBRE DE LA  IMAGEN", bg=colorBotones,width=40, height=1,
                        fg=colorLetra).place(x=450, y=200)
 
 etiquetaT2 = Label(ventana, text="DESCRIPCIÓN DE LA IMAGEN", bg=colorFondo,
-                  fg=colorLetra,width=35, height=1).place(x=450, y=250)
+                  fg=colorLetra,width=36, height=1).place(x=450, y=250)
 
-cajadescripcion = Text(ventana, height=1, width=40).place(x=450, y=275)
+cajadescripcion = Text(ventana, height=1, width=36).place(x=450, y=275)
 
 botoimagendes = Button(ventana, text="AÑADIR DESCRIPCIÓN DE LA IMAGEN", bg=colorBotones,width=40, height=1,
                        fg=colorLetra).place(x=450, y=300)
@@ -80,7 +80,7 @@ etiquetaT3 = Label(ventana, text="Universidad del Ecuador ", bg=colorFondo,
 
 
 
-cajajugar =  Text(ventana, height=5, width=40).place(x=450, y=550)
+cajajugar =  Text(ventana, height=5, width=36).place(x=450, y=550)
 botoFinaliza = Button(ventana, text="FINALIZAR", bg=colorBotones,width=20, height=1,
                        fg=colorLetra).place(x=610, y=665)
 botoIntentar = Button(ventana, text="VOLVER A INTENTAR", bg=colorBotones,width=20, height=1,
