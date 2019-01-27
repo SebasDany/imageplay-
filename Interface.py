@@ -4,7 +4,7 @@ from tkinter import messagebox
 from tkinter import ttk
 from tkinter.filedialog import askopenfilename
 
-
+#SELECCION DE IMAGEN
 def chose():
     Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
     filename = askopenfilename()  # show an "Open" dialog box and return the path to the selected file
@@ -25,7 +25,7 @@ def chose():
     etiqueta = Label(ventana, image=im5, width=200, height=200).place(x=220, y=463)
     w.pack()
 
-
+#CENTRAR VENTANA
 def center(win):
     """
     centers a tkinter window
@@ -43,6 +43,8 @@ def center(win):
     win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
     win.deiconify()
 
+
+#INTERFAZ
 ventana = Tk()
 
 genero = StringVar()
@@ -51,14 +53,16 @@ descripcion = StringVar()
 duracion = StringVar()
 anio = StringVar()
 conteliminar = StringVar()
-colorFondo = "WHITE"
+colorFondo = "orange"
 colorLetra = "BLACK"
 colorBotones = "SpringGreen3"
 ventana.title("Imge Play")
 ventana.geometry("800x698")
 ventana.configure(background = colorFondo)
-etiquetaTitulo= Label(ventana, text="Bienvenido",
+etiquetaTitulo= Label(ventana, text="BIENVENIDO",
                       bg="teal", fg=colorFondo,width=60).place(x=190,y=10)
+
+
 botonSeIma = Button(ventana, text="SELECCIONAR UNA IMAGEN", command=chose, bg=colorBotones, width=40, height=1,
                     fg=colorLetra).place(x=450, y=60)
 botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose, bg=colorBotones, width=40, height=1,
@@ -68,7 +72,7 @@ botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose,
 etiquetaT1 = Label(ventana, text="NOMBRE DE LA IMAGEN", bg=colorFondo,
                   fg=colorLetra,width=35, height=1).place(x=450, y=150)
 
-cajanombre = Text(ventana, height=1, width=36).place(x=450, y=175)
+cajanombre = Text(ventana, height=1, width=36 , borderwidth=2).place(x=450, y=175)
 
 
 botoimagenins = Button(ventana, text="AÑADIR NOMBRE DE LA  IMAGEN", bg=colorBotones,width=40, height=1,
@@ -77,30 +81,70 @@ botoimagenins = Button(ventana, text="AÑADIR NOMBRE DE LA  IMAGEN", bg=colorBot
 etiquetaT2 = Label(ventana, text="DESCRIPCIÓN DE LA IMAGEN", bg=colorFondo,
                   fg=colorLetra,width=36, height=1).place(x=450, y=250)
 
-cajadescripcion = Text(ventana, height=1, width=36).place(x=450, y=275)
+cajadescripcion = Text(ventana, height=1, width=36 , borderwidth=2).place(x=450, y=275)
 
 botoimagendes = Button(ventana, text="AÑADIR DESCRIPCIÓN DE LA IMAGEN", bg=colorBotones,width=40, height=1,
                        fg=colorLetra).place(x=450, y=300)
-etiquetaT3 = Label(ventana, text="Complete en  la parte de abajo\n el nombre de la imagen \n correspondiente para que así\n vaya destapando la imagen poco a poco :)", bg=colorFondo,
-                  fg=colorLetra,width=50, height=5).place(x=400, y=330)
-
-etiquetaT3 = Label(ventana, text="Descripción de la Imagen: ", bg=colorFondo,
-                  fg=colorLetra,width=50, height=1).place(x=400, y=410)
-
-etiquetaT3 = Label(ventana, text="Universidad del Ecuador ", bg=colorFondo,
-                  fg=colorLetra,width=50, height=5).place(x=400, y=430)
 
 
 
+#ayuda para jugar básica
+txtFrameinstruc = Frame(ventana, borderwidth=1, relief="sunken")
+txtinstruc = Text(txtFrameinstruc, wrap = NONE, height = 4, width = 36, borderwidth=1)
+vscroll = Scrollbar(txtFrameinstruc, orient=HORIZONTAL, command=txtinstruc.xview)
+vscroll01 = Scrollbar(txtFrameinstruc, orient=VERTICAL, command=txtinstruc.yview)
+txtinstruc['xscrollcommand'] = vscroll.set
+txtinstruc['yscrollcommand'] = vscroll01.set
+vscroll.pack(side="bottom", fill="x")
+vscroll01.pack(side="right", fill="y")
+txtinstruc.pack(side="left", fill="both", expand=True)
+txtinstruc.insert(INSERT, "Complete en  la parte de abajo el nombre :)\nde la imagen  correspondiente para que así vaya\ndestapando la imagen poco a poco :) :) \n\n")
+txtFrameinstruc.place(x=450, y=330)
+txtinstruc.tag_add("here", "1.0", "7.4")
+txtinstruc.tag_add("start", "1.8", "1.13")
+txtinstruc.tag_config("here", background=colorBotones, foreground="blue")
+
+etiquetaT3 = Label(ventana, text="DESCRIPCIÓN DE LA IMAGEN: ", bg=colorFondo,
+                  fg=colorLetra,width=50, height=1).place(x=410, y=430)
+
+#Descripcion de la imagen
+txtdesi = Frame(ventana, borderwidth=1, relief="sunken")
+txtodesi = Text(txtdesi, wrap = NONE, height = 1, width = 36, borderwidth=1)
+vscrolldei = Scrollbar(txtdesi, orient=HORIZONTAL, command=txtodesi.xview)
+vscrolldei01 = Scrollbar(txtdesi, orient=VERTICAL, command=txtodesi.yview)
+txtodesi['xscrollcommand'] = vscrolldei.set
+txtodesi['yscrollcommand'] = vscrolldei01.set
+vscrolldei.pack(side="bottom", fill="x")
+vscrolldei01.pack(side="right", fill="y")
+txtodesi.pack(side="left", fill="both", expand=True)
+txtodesi.insert(INSERT, "UNIVERSIDAD POLITÉCNICA SALESIANA")
+txtdesi.place(x=450, y=455)
+txtodesi.tag_add("here", "1.0", "7.4")
+txtodesi.tag_add("start", "1.8", "1.13")
+txtodesi.tag_config("here", background=colorBotones, foreground="blue")
 
 
-cajajugar =  Text(ventana, height=5, width=36).place(x=450, y=550)
+
+etiquetaT4 = Label(ventana, text="ADIVINA: ", bg=colorFondo,
+                  fg=colorLetra,width=50, height=1).place(x=410, y=530)
+
+
+
+
+
+
+
+
+
+#ADIVINA LA PALABRA
+cajajugar =  Text(ventana, height=5, width=38, borderwidth=2).place(x=450, y=550 )
 botoFinaliza = Button(ventana, text="FINALIZAR", bg=colorBotones,width=20, height=1,
                        fg=colorLetra).place(x=610, y=665)
 botoIntentar = Button(ventana, text="VOLVER A INTENTAR", bg=colorBotones,width=20, height=1,
                        fg=colorLetra).place(x=450, y=665)
 
 
+#REEMPLAZO DE IMAGEN
 im=PhotoImage(file="descarga.png")
 fond=Label(ventana,image=im,  width=400,height=610).place(x=20,y=60)
 im1=PhotoImage(file="nula.png")
