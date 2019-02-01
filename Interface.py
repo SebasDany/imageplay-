@@ -1,5 +1,7 @@
 from distutils import command
 from tkinter import *
+import os
+import shutil
 from tkinter import messagebox
 from tkinter import ttk
 from tkinter.filedialog import askopenfilename
@@ -8,22 +10,29 @@ from tkinter.filedialog import askopenfilename
 def chose():
     Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
     filename = askopenfilename()  # show an "Open" dialog box and return the path to the selected file
-    print(filename)
-    a=filename
-    imh = PhotoImage(file=a)
-    w = Label(ventana, image=imh, width=400, height=610).place(x=20, y=60)
-    im1 = PhotoImage(file="nula.png")
-    etiqueta = Label(ventana, image=im1, width=200, height=200).place(x=220, y=60)
 
-    im3 = PhotoImage(file="nula.png")
-    etiqueta = Label(ventana, image=im3, width=200, height=200).place(x=20, y=60)
-    im2 = PhotoImage(file="nula.png")
-    etiqueta = Label(ventana, image=im2, width=200, height=200).place(x=20, y=260)
-    im4 = PhotoImage(file="nula.png")
-    etiqueta = Label(ventana, image=im4, width=200, height=200).place(x=20, y=463)
-    im5 = PhotoImage(file="nula.png")
-    etiqueta = Label(ventana, image=im5, width=200, height=200).place(x=220, y=463)
-    w.pack()
+    imh = PhotoImage(file=filename)
+
+
+    w = Label(ventana, image=imh, width=400, height=610)
+    w.image=imh
+    w.place(x=20, y=60)
+    im1 = PhotoImage(file="nula.png")
+    etiqueta1 = Label(ventana, image=im1, width=200, height=200).place(x=220, y=60)
+    etiqueta1.image=im1
+    etiqueta2 = Label(ventana, image=im1, width=200, height=200).place(x=20, y=60)
+    etiqueta2.image = im1
+
+    etiqueta3 = Label(ventana, image=im1, width=200, height=200).place(x=20, y=260)
+    etiqueta3.image = im1
+
+    etiqueta4 = Label(ventana, image=im1, width=200, height=200).place(x=20, y=463)
+    etiqueta4.image = im1
+
+    etiqueta5 = Label(ventana, image=im1, width=200, height=200).place(x=220, y=463)
+    etiqueta5.image = im1
+
+    #w.pack()
 
 #CENTRAR VENTANA
 def center(win):
@@ -56,15 +65,14 @@ conteliminar = StringVar()
 colorFondo = "orange"
 colorLetra = "BLACK"
 colorBotones = "SpringGreen3"
-ventana.title("Imge Play")
+ventana.title("Image Play")
 ventana.geometry("800x698")
 ventana.configure(background = colorFondo)
 etiquetaTitulo= Label(ventana, text="BIENVENIDO",
                       bg="teal", fg=colorFondo,width=60).place(x=190,y=10)
 
 
-botonSeIma = Button(ventana, text="SELECCIONAR UNA IMAGEN", command=chose, bg=colorBotones, width=40, height=1,
-                    fg=colorLetra).place(x=450, y=60)
+
 botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose, bg=colorBotones, width=40, height=1,
                     fg=colorLetra).place(x=450, y=100)
 
@@ -145,19 +153,8 @@ botoIntentar = Button(ventana, text="VOLVER A INTENTAR", bg=colorBotones,width=2
 
 
 #REEMPLAZO DE IMAGEN
-im=PhotoImage(file="descarga.png")
-fond=Label(ventana,image=im,  width=400,height=610).place(x=20,y=60)
-im1=PhotoImage(file="nula.png")
-etiqueta=Label(ventana,image=im1,  width=200,height=200).place(x=220,y=60)
 
-im3=PhotoImage(file="nula.png")
-etiqueta=Label(ventana,image=im3,  width=200,height=200).place(x=20,y=60)
-im2=PhotoImage(file="nula.png")
-etiqueta=Label(ventana,image=im2,  width=200,height=200).place(x=20,y=260)
-im4=PhotoImage(file="nula.png")
-etiqueta=Label(ventana,image=im4,  width=200,height=200).place(x=20,y=463)
-im5=PhotoImage(file="nula.png")
-etiqueta=Label(ventana,image=im5,  width=200,height=200).place(x=220,y=463)
+
 
 center(ventana)
 mainloop()
