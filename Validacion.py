@@ -2,10 +2,9 @@
 
 
 
-class validacion:
- nombre_imagen=""
- descripcion_imagen=""
-
+class validacion():
+ global nombre_imagen
+ global descripcion_imagen
  def __init__(self):
         print("Instanciando clase")
 
