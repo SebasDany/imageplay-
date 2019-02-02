@@ -6,14 +6,22 @@ import shutil
 from tkinter import messagebox
 from tkinter import ttk
 from tkinter.filedialog import askopenfilename
+from tkinter import filedialog
+from distutils import command
+import shutil
+from tkinter import messagebox
+from tkinter import ttk
+from tkinter.filedialog import askopenfilename
+from tkinter import Label,Tk
+from PIL import Image, ImageTk
+from tkinter import filedialog
 objeto_validacion=Validacion.validacion()
 #SELECCION DE IMAGEN
 def chose():
     Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
-    filename = askopenfilename()  # show an "Open" dialog box and return the path to the selected file
-
-    imh = PhotoImage(file=filename)
-
+    path = filedialog.askopenfilename(filetypes=[("Image File", '.jpg .png .jpeg')])
+    im = Image.open(path)
+    imh = ImageTk.PhotoImage(file=path)
 
     w = Label(ventana, image=imh, width=400, height=610)
     w.image=imh
@@ -54,9 +62,12 @@ def center(win):
     win.deiconify()
 def anadir_nombre():
     nombre_imagen=cajanombre.get("1.0",END)
+
     print("Hola"+nombre_imagen)
     objeto_validacion.set_nombre_imagen(nombre_imagen)
     print(objeto_validacion.return_tamanio_de_palabra())
+
+
 
 def anadir_descripcion():
     descripcion_imagen = cajadescripcion.get("1.0", END)
