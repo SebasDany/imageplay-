@@ -1,8 +1,9 @@
 from distutils import command
 from tkinter import *
-import datos
+#import datos
+#import pro
 import datetime, time
-datos.crerar_archivo('fsdgdsgdfg','dfbdbfdbdfbb','145657687')
+#datos.crerar_archivo('fsdgdsgdfg','dfbdbfdbdfbb','145657687')
 
 import os
 import shutil
@@ -15,18 +16,17 @@ from tkinter import filedialog
 #SELECCION DE IMAGEN
 
 
-def iniciar():
-    suma = 0
-    while (suma <= 10):
-        apcaja = Entry(ventana, textvariable="gg").place(x=170, y=40)
-        suma = suma + 1
-        time.sleep(1)
+def iniciarggg():
     cron = Label(ventana, text="TIEMPO",
                  fg=colorFondo).place(x=350, y=40)
+    suma = 0
+    while (suma <= 10):
+        print(suma)
+        Entry(ventana, textvariable=suma).place(x=170, y=70)
+        suma = suma + 1
+        time.sleep(1)
 
 
-    catime = Text(ventana, height=1, width=36, borderwidth=2 ).place(x=350, y=70)
-    catime.insert(INSERT,datos.cromometro)
 
 
 
@@ -61,6 +61,17 @@ def chose():
     #w.pack()
 
 #CENTRAR VENTANA
+
+
+
+def iniciar(contador=10):
+    proceso = 10
+    time['text'] = contador
+    proceso = time.after(1000, iniciar, (contador - 1))
+    if (contador == 0):
+        time.after_cancel(proceso)
+
+
 def center(win):
     """
     centers a tkinter window
@@ -178,6 +189,17 @@ botoIntentar = Button(ventana, text="iniciar", bg=colorBotones,width=20, height=
 
 #REEMPLAZO DE IMAGEN
 
+cron = Label(ventana, text="Time:",
+                 fg=colorFondo).place(x=650, y=10)
+time = Label(ventana, fg='red', width=5, font=("", "18"))
+time.place(x=650, y=40)
+
+
+# si queremos que se autoejecuta al iniciar el programa hay que desomentar
+# esta linea y comentar los botones
+# iniciar()
+
+# Generamos un frame para poner los botones de iniciar y parar
 
 center(ventana)
 mainloop()
