@@ -1,5 +1,9 @@
 from distutils import command
 from tkinter import *
+import datos
+import datetime, time
+datos.crerar_archivo('fsdgdsgdfg','dfbdbfdbdfbb','145657687')
+
 import os
 import shutil
 from tkinter import messagebox
@@ -7,6 +11,23 @@ from tkinter import ttk
 from tkinter.filedialog import askopenfilename
 
 #SELECCION DE IMAGEN
+
+
+def iniciar():
+    suma = 0
+    while (suma <= 10):
+        apcaja = Entry(ventana, textvariable="gg").place(x=170, y=40)
+        suma = suma + 1
+        time.sleep(1)
+    cron = Label(ventana, text="TIEMPO",
+                 fg=colorFondo).place(x=350, y=40)
+
+
+    catime = Text(ventana, height=1, width=36, borderwidth=2 ).place(x=350, y=70)
+    catime.insert(INSERT,datos.cromometro)
+
+
+
 def chose():
     Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
     filename = askopenfilename()  # show an "Open" dialog box and return the path to the selected file
@@ -70,6 +91,8 @@ ventana.geometry("800x698")
 ventana.configure(background = colorFondo)
 etiquetaTitulo= Label(ventana, text="BIENVENIDO",
                       bg="teal", fg=colorFondo,width=60).place(x=190,y=10)
+
+
 
 
 
@@ -140,20 +163,15 @@ etiquetaT4 = Label(ventana, text="ADIVINA: ", bg=colorFondo,
 
 
 
-
-
-
-
 #ADIVINA LA PALABRA
 cajajugar =  Text(ventana, height=5, width=38, borderwidth=2).place(x=450, y=550 )
 botoFinaliza = Button(ventana, text="FINALIZAR", bg=colorBotones,width=20, height=1,
                        fg=colorLetra).place(x=610, y=665)
-botoIntentar = Button(ventana, text="VOLVER A INTENTAR", bg=colorBotones,width=20, height=1,
+botoIntentar = Button(ventana, text="iniciar", bg=colorBotones,width=20, height=1,command=iniciar,
                        fg=colorLetra).place(x=450, y=665)
 
 
 #REEMPLAZO DE IMAGEN
-
 
 
 center(ventana)
