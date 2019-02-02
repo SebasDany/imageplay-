@@ -1,43 +1,18 @@
 from distutils import command
 from tkinter import *
-import datos
-#import pro
-import datetime, time
-datos.crerar_archivo('fsdgdsgdfg','dfbdbfdbdfbb','145657687')
-
+import Validacion
 import os
 import shutil
 from tkinter import messagebox
 from tkinter import ttk
 from tkinter.filedialog import askopenfilename
-from tkinter import Label,Tk
-from PIL import Image, ImageTk
-from tkinter import filedialog
+objeto_validacion=Validacion.validacion()
 #SELECCION DE IMAGEN
-
-
-def iniciarggg():
-    cron = Label(ventana, text="TIEMPO",
-                 fg=colorFondo).place(x=350, y=40)
-    suma = 0
-    while (suma <= 10):
-        print(suma)
-        Entry(ventana, textvariable=suma).place(x=170, y=70)
-        suma = suma + 1
-        time.sleep(1)
-
-
-
-
-
 def chose():
     Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
-    #filename = askopenfilename()  # show an "Open" dialog box and return the path to the selected file
+    filename = askopenfilename()  # show an "Open" dialog box and return the path to the selected file
 
-    path = filedialog.askopenfilename(filetypes=[("Image File", '.jpg .png .jpeg')])
-    im = Image.open(path)
-    imh = ImageTk.PhotoImage(file=path)
-
+    imh = PhotoImage(file=filename)
 
 
     w = Label(ventana, image=imh, width=400, height=610)
@@ -46,32 +21,21 @@ def chose():
     im1 = PhotoImage(file="nula.png")
     etiqueta1 = Label(ventana, image=im1, width=200, height=200).place(x=220, y=60)
     etiqueta1.image=im1
-    etiqueta2 = Label(ventana, image=im1, width=200, height=200).place(x=20, y=60)
-    etiqueta2.image = im1
+    #etiqueta2 = Label(ventana, image=im1, width=200, height=200).place(x=20, y=60)
+    #etiqueta2.image = im1
 
-    etiqueta3 = Label(ventana, image=im1, width=200, height=200).place(x=20, y=260)
-    etiqueta3.image = im1
+    #etiqueta3 = Label(ventana, image=im1, width=200, height=200).place(x=20, y=260)
+    #etiqueta3.image = im1
 
-    etiqueta4 = Label(ventana, image=im1, width=200, height=200).place(x=20, y=463)
-    etiqueta4.image = im1
+    #etiqueta4 = Label(ventana, image=im1, width=200, height=200).place(x=20, y=463)
+    #etiqueta4.image = im1
 
-    etiqueta5 = Label(ventana, image=im1, width=200, height=200).place(x=220, y=463)
-    etiqueta5.image = im1
+   # etiqueta5 = Label(ventana, image=im1, width=200, height=200).place(x=220, y=463)
+    #etiqueta5.image = im1
 
     #w.pack()
 
 #CENTRAR VENTANA
-
-
-
-def iniciar(contador=10):
-    proceso = 10
-    time['text'] = contador
-    proceso = time.after(1000, iniciar, (contador - 1))
-    if (contador == 0):
-        time.after_cancel(proceso)
-
-
 def center(win):
     """
     centers a tkinter window
@@ -88,10 +52,21 @@ def center(win):
     y = win.winfo_screenheight() // 2 - win_height // 2
     win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
     win.deiconify()
+def anadir_nombre():
+    nombre_imagen=cajanombre.get("1.0",END)
+    print("Hola"+nombre_imagen)
+    objeto_validacion.set_nombre_imagen(nombre_imagen)
+    print(objeto_validacion.return_tamanio_de_palabra())
 
-
+def anadir_descripcion():
+    descripcion_imagen = cajadescripcion.get("1.0", END)
+    objeto_validacion.set_descripcion_imagen(descripcion_imagen)
 #INTERFAZ
 ventana = Tk()
+#############Objeto validacion
+
+
+
 
 genero = StringVar()
 titulo = StringVar()
@@ -108,9 +83,11 @@ ventana.configure(background = colorFondo)
 etiquetaTitulo= Label(ventana, text="BIENVENIDO",
                       bg="teal", fg=colorFondo,width=60).place(x=190,y=10)
 
-
-
-
+etiquetajug = Label(ventana, text="NOMBRE DEL JUGADOR", bg=colorFondo,
+                  fg=colorLetra,width=35, height=1).place(x=450, y=50)
+#---->
+cajaju = Text(ventana, height=1, width=36 , borderwidth=2)
+cajaju.place(x=450, y=70)
 
 botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose, bg=colorBotones, width=40, height=1,
                     fg=colorLetra).place(x=450, y=100)
@@ -118,20 +95,19 @@ botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose,
 
 etiquetaT1 = Label(ventana, text="NOMBRE DE LA IMAGEN", bg=colorFondo,
                   fg=colorLetra,width=35, height=1).place(x=450, y=150)
+#---->
+cajanombre = Text(ventana, height=1, width=36 , borderwidth=2)
+cajanombre.place(x=450, y=175)
 
-cajanombre = Text(ventana, height=1, width=36 , borderwidth=2).place(x=450, y=175)
 
-
-botoimagenins = Button(ventana, text="AÑADIR NOMBRE DE LA  IMAGEN", bg=colorBotones,width=40, height=1,
-                       fg=colorLetra).place(x=450, y=200)
 
 etiquetaT2 = Label(ventana, text="DESCRIPCIÓN DE LA IMAGEN", bg=colorFondo,
                   fg=colorLetra,width=36, height=1).place(x=450, y=250)
+#---->
+cajadescripcion = Text(ventana, height=1, width=36 , borderwidth=2)
+cajadescripcion.place(x=450, y=275)
 
-cajadescripcion = Text(ventana, height=1, width=36 , borderwidth=2).place(x=450, y=275)
 
-botoimagendes = Button(ventana, text="AÑADIR DESCRIPCIÓN DE LA IMAGEN", bg=colorBotones,width=40, height=1,
-                       fg=colorLetra).place(x=450, y=300)
 
 
 
@@ -179,27 +155,25 @@ etiquetaT4 = Label(ventana, text="ADIVINA: ", bg=colorFondo,
 
 
 
+
+
+
+
 #ADIVINA LA PALABRA
 cajajugar =  Text(ventana, height=5, width=38, borderwidth=2).place(x=450, y=550 )
 botoFinaliza = Button(ventana, text="FINALIZAR", bg=colorBotones,width=20, height=1,
                        fg=colorLetra).place(x=610, y=665)
-botoIntentar = Button(ventana, text="iniciar", bg=colorBotones,width=20, height=1,command=iniciar,
-                       fg=colorLetra).place(x=450, y=665)
+botoIntentar = Button(ventana, text="INICIAR", bg=colorBotones,width=20, height=1,
+                       fg=colorLetra,command=anadir_nombre).place(x=450, y=665)
 
 
 #REEMPLAZO DE IMAGEN
+label_principal=Label(ventana,width=60,height=70)
+label_principal.place(x=20,y=60)
+label_principal.pack
+imh = PhotoImage(file="descarga.png")
 
-cron = Label(ventana, text="Time:",
-                 fg=colorFondo).place(x=650, y=10)
-time = Label(ventana, fg='red', width=5, font=("", "18"))
-time.place(x=650, y=40)
-
-
-# si queremos que se autoejecuta al iniciar el programa hay que desomentar
-# esta linea y comentar los botones
-# iniciar()
-
-# Generamos un frame para poner los botones de iniciar y parar
 
 center(ventana)
 mainloop()
+
