@@ -171,7 +171,7 @@ botoIntentar = Button(ventana, text="INICIAR", bg=colorBotones,width=20, height=
 label_principal=Label(ventana,width=60,height=70)
 label_principal.place(x=20,y=60)
 label_principal.pack
-imh = PhotoImage(file="C:/Users/natha/Desktop/Blanco.png")
+imh = PhotoImage(file="descarga.png")
 
 
 center(ventana)
