@@ -83,7 +83,11 @@ ventana.configure(background = colorFondo)
 etiquetaTitulo= Label(ventana, text="BIENVENIDO",
                       bg="teal", fg=colorFondo,width=60).place(x=190,y=10)
 
-
+etiquetajug = Label(ventana, text="NOMBRE DEL JUGADOR", bg=colorFondo,
+                  fg=colorLetra,width=35, height=1).place(x=450, y=50)
+#---->
+cajaju = Text(ventana, height=1, width=36 , borderwidth=2)
+cajaju.place(x=450, y=70)
 
 botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose, bg=colorBotones, width=40, height=1,
                     fg=colorLetra).place(x=450, y=100)
@@ -96,8 +100,6 @@ cajanombre = Text(ventana, height=1, width=36 , borderwidth=2)
 cajanombre.place(x=450, y=175)
 
 
-botoimagenins = Button(ventana, text="AÑADIR NOMBRE DE LA  IMAGEN", bg=colorBotones,width=40, height=1,
-                       fg=colorLetra,command=anadir_nombre).place(x=450, y=200)
 
 etiquetaT2 = Label(ventana, text="DESCRIPCIÓN DE LA IMAGEN", bg=colorFondo,
                   fg=colorLetra,width=36, height=1).place(x=450, y=250)
@@ -105,8 +107,7 @@ etiquetaT2 = Label(ventana, text="DESCRIPCIÓN DE LA IMAGEN", bg=colorFondo,
 cajadescripcion = Text(ventana, height=1, width=36 , borderwidth=2)
 cajadescripcion.place(x=450, y=275)
 
-botoimagendes = Button(ventana, text="AÑADIR DESCRIPCIÓN DE LA IMAGEN", bg=colorBotones,width=40, height=1,
-                       fg=colorLetra,command=anadir_descripcion).place(x=450, y=300)
+
 
 
 
