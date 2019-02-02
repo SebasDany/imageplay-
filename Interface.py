@@ -9,7 +9,9 @@ import shutil
 from tkinter import messagebox
 from tkinter import ttk
 from tkinter.filedialog import askopenfilename
-
+from tkinter import Label,Tk
+from PIL import Image, ImageTk
+from tkinter import filedialog
 #SELECCION DE IMAGEN
 
 
@@ -30,9 +32,12 @@ def iniciar():
 
 def chose():
     Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
-    filename = askopenfilename()  # show an "Open" dialog box and return the path to the selected file
+    #filename = askopenfilename()  # show an "Open" dialog box and return the path to the selected file
 
-    imh = PhotoImage(file=filename)
+    path = filedialog.askopenfilename(filetypes=[("Image File", '.jpg .png .jpeg')])
+    im = Image.open(path)
+    imh = ImageTk.PhotoImage(file=path)
+
 
 
     w = Label(ventana, image=imh, width=400, height=610)
