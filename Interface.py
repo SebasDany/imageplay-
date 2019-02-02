@@ -1,9 +1,9 @@
 from distutils import command
 from tkinter import *
-#import datos
+import datos
 #import pro
 import datetime, time
-#datos.crerar_archivo('fsdgdsgdfg','dfbdbfdbdfbb','145657687')
+datos.crerar_archivo('fsdgdsgdfg','dfbdbfdbdfbb','145657687')
 
 import os
 import shutil
