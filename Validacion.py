@@ -1,7 +1,3 @@
-
-
-
-
 class validacion():
  global nombre_imagen
  global descripcion_imagen
@@ -21,5 +17,3 @@ class validacion():
      return len(self.nombre_imagen)-1
  def return_letras(self):
     return self.nombre_imagen[0]+"/"+self.nombre_imagen[len(self.nombre_imagen)-1]
-
-
