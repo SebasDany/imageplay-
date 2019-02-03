@@ -1,53 +1,19 @@
 from distutils import command
 from tkinter import *
 import Validacion
-import datetime, time
-import  datos
-
 import os
 import shutil
 from tkinter import messagebox
 from tkinter import ttk
 from tkinter.filedialog import askopenfilename
-from tkinter import filedialog
-from distutils import command
-import shutil
-from tkinter import messagebox
-from tkinter import ttk
-from tkinter.filedialog import askopenfilename
-from tkinter import Label,Tk
-from PIL import Image, ImageTk
-from tkinter import filedialog
 objeto_validacion=Validacion.validacion()
 #SELECCION DE IMAGEN
-
-
-def iniciar(contador=2):
-    jugador = cajaju.get('1.0', END)
-    imnom = cajanombre.get('1.0', END)
-    datos.crerar_archivo(jugador,"4",imnom)
-
-    proceso = 2
-    time['text'] = contador
-    proceso = time.after(1000, iniciar, (contador - 1))
-    if (contador == 0):
-        time.after_cancel(proceso)
-        v = Tk()
-
-        v.title("Image Play")
-        v.configure(background="black")
-        v.geometry("300x100")
-        lbl = Label(v, text=" ** You Lost ** ",font=("", "30"),fg=colorFondo,background="black")
-        lbl.grid(column=0, row=0)
-        v.mainloop()
-
-
-
 def chose():
     Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
-    path = filedialog.askopenfilename(filetypes=[("Image File", '.jpg .png .jpeg')])
-    im = Image.open(path)
-    imh = ImageTk.PhotoImage(file=path)
+    filename = askopenfilename()  # show an "Open" dialog box and return the path to the selected file
+
+    imh = PhotoImage(file=filename)
+
 
     w = Label(ventana, image=imh, width=400, height=610)
     w.image=imh
@@ -88,18 +54,19 @@ def center(win):
     win.deiconify()
 def anadir_nombre():
     nombre_imagen=cajanombre.get("1.0",END)
-
     print("Hola"+nombre_imagen)
     objeto_validacion.set_nombre_imagen(nombre_imagen)
     print(objeto_validacion.return_tamanio_de_palabra())
-
-
 
 def anadir_descripcion():
     descripcion_imagen = cajadescripcion.get("1.0", END)
     objeto_validacion.set_descripcion_imagen(descripcion_imagen)
 #INTERFAZ
 ventana = Tk()
+#############Objeto validacion
+
+
+
 
 genero = StringVar()
 titulo = StringVar()
@@ -114,7 +81,7 @@ ventana.title("Image Play")
 ventana.geometry("800x698")
 ventana.configure(background = colorFondo)
 etiquetaTitulo= Label(ventana, text="BIENVENIDO",
-                      bg="teal", fg=colorFondo,width=40,font=("", "18")).place(x=30,y=10)
+                      bg="teal", fg=colorFondo,width=60).place(x=190,y=10)
 
 etiquetajug = Label(ventana, text="NOMBRE DEL JUGADOR", bg=colorFondo,
                   fg=colorLetra,width=35, height=1).place(x=450, y=50)
@@ -186,24 +153,26 @@ etiquetaT4 = Label(ventana, text="ADIVINA: ", bg=colorFondo,
 
 
 
+
+
+
+
+
+
 #ADIVINA LA PALABRA
 cajajugar =  Text(ventana, height=5, width=38, borderwidth=2).place(x=450, y=550 )
 botoFinaliza = Button(ventana, text="FINALIZAR", bg=colorBotones,width=20, height=1,
                        fg=colorLetra).place(x=610, y=665)
 botoIntentar = Button(ventana, text="INICIAR", bg=colorBotones,width=20, height=1,
-                       fg=colorLetra,command=iniciar).place(x=450, y=665)
+                       fg=colorLetra,command=anadir_nombre).place(x=450, y=665)
 
 
 #REEMPLAZO DE IMAGEN
 label_principal=Label(ventana,width=60,height=70)
 label_principal.place(x=20,y=60)
 label_principal.pack
-imh = PhotoImage(file="descarga.png")
+imh = PhotoImage(file="C:/Users/natha/Desktop/Blanco.png")
 
-cron = Label(ventana, text="Time:",
-                 fg=colorFondo,font=("", "18")).place(x=620, y=10)
-time = Label(ventana, fg='red', width=5, font=("", "18"))
-time.place(x=700, y=10)
 
 center(ventana)
 mainloop()
