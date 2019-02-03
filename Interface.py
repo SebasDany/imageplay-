@@ -169,7 +169,7 @@ colorFondo = "orange"
 colorLetra = "BLACK"
 colorBotones = "SpringGreen3"
 ventana.title("Image Play")
-ventana.geometry("800x698")
+ventana.geometry("820x698")
 ventana.configure(background = colorFondo)
 etiquetaTitulo= Label(ventana, text="BIENVENIDO",
                       bg="teal", fg=colorFondo,width=60).place(x=190,y=10)
@@ -268,7 +268,10 @@ cron = Label(ventana, text="Time:",
                  fg=colorFondo,font=("", "18")).place(x=620, y=10)
 time = Label(ventana, fg='red', width=5, font=("", "18"))
 time.place(x=700, y=10)
+ventana.title("wm min/max")
 
+# this removes the maximize button
+ventana.resizable(0,0)
 
 center(ventana)
 mainloop()
