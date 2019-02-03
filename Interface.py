@@ -59,7 +59,7 @@ def iniciar(contador=2):
 
 
     nombre_imagen = cajanombre.get()
-    descripcion = cajadescripcion.get()
+
     jugarcaja = cajaju.get()
 
     jugador = cajaju.get()
@@ -70,8 +70,8 @@ def iniciar(contador=2):
     proceso = 2
     variable=""
 
-    if (nombre_imagen != variable and descripcion != variable and jugarcaja != variable ):
-      if(nombre_imagen.isalpha() and descripcion.isalpha() and jugarcaja.isalpha() ):
+    if (nombre_imagen != variable  and jugarcaja != variable ):
+      if(nombre_imagen.isalpha()  and jugarcaja.isalpha() ):
 
         time['text'] = contador
         proceso = time.after(1000, iniciar, (contador - 1))
@@ -81,7 +81,7 @@ def iniciar(contador=2):
 
 
         if (contador == 0):
-            caj=Entry(ventana,width=36,bg="blue").place(x=380, y=550)
+
             time.after_cancel(proceso)
             v = Tk()
 
@@ -95,7 +95,7 @@ def iniciar(contador=2):
 
             v.mainloop()
       else:
-          messagebox.showerror("Error", "Por favor solo ingrese letras")
+          messagebox.showerror("Error", "Por favor solo ingrese letras en los campos nombre del jugador y nombre imagen")
     else:
         messagebox.showerror("Error", "Por favor llene todos los campos")
 def chose():
