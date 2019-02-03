@@ -59,7 +59,7 @@ def iniciar(contador=2):
 
 
     nombre_imagen = cajanombre.get()
-    descripcion = cajadescripcion.get()
+
     jugarcaja = cajaju.get()
 
     jugador = cajaju.get()
@@ -70,8 +70,8 @@ def iniciar(contador=2):
     proceso = 2
     variable=""
 
-    if (nombre_imagen != variable and descripcion != variable and jugarcaja != variable ):
-      if(nombre_imagen.isalpha() and descripcion.isalpha() and jugarcaja.isalpha() ):
+    if (nombre_imagen != variable  and jugarcaja != variable ):
+      if(nombre_imagen.isalpha()  and jugarcaja.isalpha() ):
 
         time['text'] = contador
         proceso = time.after(1000, iniciar, (contador - 1))
@@ -99,7 +99,7 @@ def iniciar(contador=2):
             #v.mainloop()
 
       else:
-          messagebox.showerror("Error", "Por favor solo ingrese letras")
+          messagebox.showerror("Error", "Por favor solo ingrese letras en los campos nombre del jugador y nombre imagen")
     else:
         messagebox.showerror("Error", "Por favor llene todos los campos")
 def chose():
@@ -173,7 +173,7 @@ colorFondo = "orange"
 colorLetra = "BLACK"
 colorBotones = "SpringGreen3"
 ventana.title("Image Play")
-ventana.geometry("800x698")
+ventana.geometry("820x698")
 ventana.configure(background = colorFondo)
 etiquetaTitulo= Label(ventana, text="BIENVENIDO",
                       bg="teal", fg=colorFondo,width=60).place(x=190,y=10)
@@ -272,7 +272,10 @@ cron = Label(ventana, text="Time:",
                  fg=colorFondo,font=("", "18")).place(x=620, y=10)
 time = Label(ventana, fg='red', width=5, font=("", "18"))
 time.place(x=700, y=10)
+ventana.title("wm min/max")
 
+# this removes the maximize button
+ventana.resizable(0,0)
 
 center(ventana)
 mainloop()
