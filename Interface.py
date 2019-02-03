@@ -18,9 +18,46 @@ from tkinter import Label,Tk
 from PIL import Image, ImageTk
 from tkinter import filedialog
 objeto_validacion=Validacion.validacion()
+
+global lista_de_textbox
+lista_de_textbox = list()
+
+def anadir_nombre():
+
+    i = 450
+    z = 450
+    nombre_imagen = cajanombre.get()
+    print("Hola" + nombre_imagen + "_" + str(len(nombre_imagen)))
+    objeto_validacion.set_nombre_imagen(nombre_imagen)
+
+
+
+    for _ in range(objeto_validacion.return_tamanio_de_palabra()+1):
+
+        cajita = Entry(ventana, width=3)
+        lista_de_textbox.append(cajita)
+
+
+
+
+        if i < 810:
+             lista_de_textbox[_].place(x=i, y=550)
+             
+
+
+        else:
+            lista_de_textbox[_].place(x=z, y=600)
+            z = z + 30
+        i = i + 30
+
+
+
 #SELECCION DE IMAGEN
 t=str(time.strftime("%d/%m/%y"))
 def iniciar(contador=2):
+
+
+
     nombre_imagen = cajanombre.get()
     descripcion = cajadescripcion.get()
     jugarcaja = cajaju.get()
@@ -35,9 +72,16 @@ def iniciar(contador=2):
 
     if (nombre_imagen != variable and descripcion != variable and jugarcaja != variable ):
       if(nombre_imagen.isalpha() and descripcion.isalpha() and jugarcaja.isalpha() ):
+
         time['text'] = contador
         proceso = time.after(1000, iniciar, (contador - 1))
+
+        anadir_nombre()
+
+
+
         if (contador == 0):
+            caj=Entry(ventana,width=36,bg="blue").place(x=380, y=550)
             time.after_cancel(proceso)
             v = Tk()
 
@@ -97,14 +141,11 @@ def center(win):
     y = win.winfo_screenheight() // 2 - win_height // 2
     win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
     win.deiconify()
-def anadir_nombre():
-    nombre_imagen=cajanombre.get()
 
 
 
 
-    objeto_validacion.set_nombre_imagen(nombre_imagen)
-    print(objeto_validacion.return_tamanio_de_palabra())
+
 
 
 
@@ -210,7 +251,7 @@ etiquetaT4 = Label(ventana, text="ADIVINA: ", bg=colorFondo,
 
 
 #ADIVINA LA PALABRA
-cajajugar =  Entry(ventana,  width=46).place(x=450, y=550 )
+
 botoFinaliza = Button(ventana, text="FINALIZAR", bg=colorBotones,width=20, height=1,
                        fg=colorLetra).place(x=610, y=665)
 botoIntentar = Button(ventana, text="INICIAR", bg=colorBotones,width=20, height=1,
@@ -227,6 +268,7 @@ cron = Label(ventana, text="Time:",
                  fg=colorFondo,font=("", "18")).place(x=620, y=10)
 time = Label(ventana, fg='red', width=5, font=("", "18"))
 time.place(x=700, y=10)
+
 
 center(ventana)
 mainloop()
