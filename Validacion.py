@@ -14,6 +14,6 @@ class validacion():
 
  def return_tamanio_de_palabra(self):
 
-     return len(self.nombre_imagen)-1
+     return len(self.nombre_imagen)
  def return_letras(self):
     return self.nombre_imagen[0]+"/"+self.nombre_imagen[len(self.nombre_imagen)-1]
