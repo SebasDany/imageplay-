@@ -1,9 +1,8 @@
 from distutils import command
 from tkinter import *
+import time
 import Validacion
-import datetime, time
-import  datos
-
+import datos
 import os
 import shutil
 from tkinter import messagebox
@@ -20,29 +19,41 @@ from PIL import Image, ImageTk
 from tkinter import filedialog
 objeto_validacion=Validacion.validacion()
 #SELECCION DE IMAGEN
-
-
+t=str(time.strftime("%d/%m/%y"))
 def iniciar(contador=2):
-    jugador = cajaju.get('1.0', END)
-    imnom = cajanombre.get('1.0', END)
-    datos.crerar_archivo(jugador,"4",imnom)
+    nombre_imagen = cajanombre.get()
+    descripcion = cajadescripcion.get()
+    jugarcaja = cajaju.get()
+
+    jugador = cajaju.get()
+    imnom = cajanombre.get()
+    print(imnom)
+    datos.crerar_archivo(jugador, "4", imnom, t)
 
     proceso = 2
-    time['text'] = contador
-    proceso = time.after(1000, iniciar, (contador - 1))
-    if (contador == 0):
-        time.after_cancel(proceso)
-        v = Tk()
+    variable=""
 
-        v.title("Image Play")
-        v.configure(background="black")
-        v.geometry("300x100")
-        lbl = Label(v, text=" ** You Lost ** ",font=("", "30"),fg=colorFondo,background="black")
-        lbl.grid(column=0, row=0)
-        v.mainloop()
+    if (nombre_imagen != variable and descripcion != variable and jugarcaja != variable ):
+      if(nombre_imagen.isalpha() and descripcion.isalpha() and jugarcaja.isalpha() ):
+        time['text'] = contador
+        proceso = time.after(1000, iniciar, (contador - 1))
+        if (contador == 0):
+            time.after_cancel(proceso)
+            v = Tk()
 
+            v.title("Image Play")
+            v.configure(background="black")
+            v.geometry("300x200")
+            lbl = Label(v, text="**you lost **", font=("", "30"), fg=colorFondo, background="black").place(x=30, y=10)
+            lbl = Label(v, text=jugador, fg=colorFondo, background="black").place(x=30, y=50)
+            lb = Label(v, text=imnom, fg=colorFondo, background="black").place(x=30, y=70)
+            l = Label(v, text=t, fg=colorFondo, background="black").place(x=30, y=100)
 
-
+            v.mainloop()
+      else:
+          messagebox.showerror("Error", "Por favor solo ingrese letras")
+    else:
+        messagebox.showerror("Error", "Por favor llene todos los campos")
 def chose():
     Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
     path = filedialog.askopenfilename(filetypes=[("Image File", '.jpg .png .jpeg')])
@@ -87,19 +98,25 @@ def center(win):
     win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
     win.deiconify()
 def anadir_nombre():
-    nombre_imagen=cajanombre.get("1.0",END)
+    nombre_imagen=cajanombre.get()
 
-    print("Hola"+nombre_imagen)
+
+
+
     objeto_validacion.set_nombre_imagen(nombre_imagen)
     print(objeto_validacion.return_tamanio_de_palabra())
 
 
 
 def anadir_descripcion():
-    descripcion_imagen = cajadescripcion.get("1.0", END)
+    descripcion_imagen = cajadescripcion.get()
     objeto_validacion.set_descripcion_imagen(descripcion_imagen)
 #INTERFAZ
 ventana = Tk()
+#############Objeto validacion
+
+
+
 
 genero = StringVar()
 titulo = StringVar()
@@ -114,12 +131,12 @@ ventana.title("Image Play")
 ventana.geometry("800x698")
 ventana.configure(background = colorFondo)
 etiquetaTitulo= Label(ventana, text="BIENVENIDO",
-                      bg="teal", fg=colorFondo,width=40,font=("", "18")).place(x=30,y=10)
+                      bg="teal", fg=colorFondo,width=60).place(x=190,y=10)
 
 etiquetajug = Label(ventana, text="NOMBRE DEL JUGADOR", bg=colorFondo,
                   fg=colorLetra,width=35, height=1).place(x=450, y=50)
 #---->
-cajaju = Text(ventana, height=1, width=36 , borderwidth=2)
+cajaju = Entry(ventana, width=46)
 cajaju.place(x=450, y=70)
 
 botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose, bg=colorBotones, width=40, height=1,
@@ -129,7 +146,7 @@ botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose,
 etiquetaT1 = Label(ventana, text="NOMBRE DE LA IMAGEN", bg=colorFondo,
                   fg=colorLetra,width=35, height=1).place(x=450, y=150)
 #---->
-cajanombre = Text(ventana, height=1, width=36 , borderwidth=2)
+cajanombre = Entry(ventana,  width=46)
 cajanombre.place(x=450, y=175)
 
 
@@ -137,7 +154,7 @@ cajanombre.place(x=450, y=175)
 etiquetaT2 = Label(ventana, text="DESCRIPCIÓN DE LA IMAGEN", bg=colorFondo,
                   fg=colorLetra,width=36, height=1).place(x=450, y=250)
 #---->
-cajadescripcion = Text(ventana, height=1, width=36 , borderwidth=2)
+cajadescripcion = Entry(ventana, width=46 )
 cajadescripcion.place(x=450, y=275)
 
 
@@ -186,12 +203,19 @@ etiquetaT4 = Label(ventana, text="ADIVINA: ", bg=colorFondo,
 
 
 
+
+
+
+
+
+
 #ADIVINA LA PALABRA
-cajajugar =  Text(ventana, height=5, width=38, borderwidth=2).place(x=450, y=550 )
+cajajugar =  Entry(ventana,  width=46).place(x=450, y=550 )
 botoFinaliza = Button(ventana, text="FINALIZAR", bg=colorBotones,width=20, height=1,
                        fg=colorLetra).place(x=610, y=665)
 botoIntentar = Button(ventana, text="INICIAR", bg=colorBotones,width=20, height=1,
                        fg=colorLetra,command=iniciar).place(x=450, y=665)
+
 
 
 #REEMPLAZO DE IMAGEN
@@ -199,7 +223,6 @@ label_principal=Label(ventana,width=60,height=70)
 label_principal.place(x=20,y=60)
 label_principal.pack
 imh = PhotoImage(file="descarga.png")
-
 cron = Label(ventana, text="Time:",
                  fg=colorFondo,font=("", "18")).place(x=620, y=10)
 time = Label(ventana, fg='red', width=5, font=("", "18"))
