@@ -53,7 +53,7 @@ def anadir_nombre():
 
 
 #SELECCION DE IMAGEN
-t=str(time.strftime("%d/%m/%y"))
+fecha=str(time.strftime("%d/%m/%y"))
 def iniciar(contador=2):
 
 
@@ -65,7 +65,7 @@ def iniciar(contador=2):
     jugador = cajaju.get()
     imnom = cajanombre.get()
     print(imnom)
-    datos.crerar_archivo(jugador, "4", imnom, t)
+    #datos.crerar_archivo(jugador, proceso , imnom, fecha)
 
     proceso = 2
     variable=""
@@ -81,19 +81,23 @@ def iniciar(contador=2):
 
 
         if (contador == 0):
-            caj=Entry(ventana,width=36,bg="blue").place(x=380, y=550)
+
             time.after_cancel(proceso)
-            v = Tk()
+            #v = Tk()
+            datos.crerar_archivo(jugador, proceso, imnom, fecha)
+            datos.ventana( jugador, imnom, proceso, fecha,"you lost")
 
-            v.title("Image Play")
-            v.configure(background="black")
-            v.geometry("300x200")
-            lbl = Label(v, text="**you lost **", font=("", "30"), fg=colorFondo, background="black").place(x=30, y=10)
-            lbl = Label(v, text=jugador, fg=colorFondo, background="black").place(x=30, y=50)
-            lb = Label(v, text=imnom, fg=colorFondo, background="black").place(x=30, y=70)
-            l = Label(v, text=t, fg=colorFondo, background="black").place(x=30, y=100)
+            #v.title("Image Play")
+            #v.configure(background="black")
+            #v.geometry("300x200")
+            #lbl = Label(v, text="**you lost **", font=("", "30"), fg=colorFondo, background="black").place(x=30, y=10)
+            #lbl = Label(v, text="JUGADOR : "+jugador, fg=colorFondo, background="black").place(x=30, y=60)
+            #lb = Label(v, text="IMAGEN : "+imnom, fg=colorFondo, background="black").place(x=30, y=80)
+            #l = Label(v, text="TIEMPO : "+proceso, fg=colorFondo, background="black").place(x=30, y=100)
+            #k = Label(v, text="FECHA : "+fecha, fg=colorFondo, background="black").place(x=30, y=120)
 
-            v.mainloop()
+            #v.mainloop()
+
       else:
           messagebox.showerror("Error", "Por favor solo ingrese letras")
     else:
@@ -272,4 +276,3 @@ time.place(x=700, y=10)
 
 center(ventana)
 mainloop()
-
