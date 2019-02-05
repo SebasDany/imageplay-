@@ -29,6 +29,8 @@ lista_de_textbox = list()
 
 fecha=str(time.strftime("%d/%m/%y"))
 def iniciar(contador=30):
+    global proceso
+
 
 
 
@@ -43,7 +45,6 @@ def iniciar(contador=30):
     print(imnom)
     datos.crerar_archivo(jugador, "4", imnom, fecha)
 
-    proceso = 30
     variable=""
 
     if (nombre_imagen != variable  and jugarcaja != variable ):
@@ -148,6 +149,7 @@ def chose():
     w.place(x=20, y=60)
     im1 = PhotoImage(file="nula.png")
     etiqueta1 = Label(ventana, image=im1, width=200, height=200).place(x=220, y=60)
+    etiqueta1.s
     etiqueta1.image=im1
 
 
@@ -169,6 +171,22 @@ def center(win):
     win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
     win.deiconify()
 
+def probar():
+    global proceso
+    a=cajanombre.get()
+    b=cajares.get()
+    if ( cajanombre.lower() ==cajares.lower()):
+
+        time.after_cancel(proceso)
+        datos.ventana(cajaju.get(), cajanombre.get(), proceso, fecha, "Winner")
+
+
+    #datos.comparar(cajanombre.get(),cajares.get())
+
+
+    # time.after_cancel(Interface.proceso)
+    # datos.crerar_archivo(jugador, contador, imnom, fecha)
+    # datos.ventana(jugador, imnom, contador, fecha,
 
 
 
@@ -288,7 +306,7 @@ botoFinaliza = Button(ventana, text="FINALIZAR", bg=colorBotones,width=17, heigh
 botoIntentar = Button(ventana, text="INICIAR JUEGO", bg=colorBotones,width=20, height=1,
                        fg=colorLetra,command=iniciar).place(x=450, y=650)
 
-botonprobar = Button(ventana, text="PROBAR PALABRA INGRESADA", bg=colorBotones,width=40, height=1,
+botonprobar = Button(ventana, text="PROBAR PALABRA INGRESADA", bg=colorBotones,width=40, height=1,command=probar,
                        fg=colorLetra).place(x=450, y=588)
 
 
