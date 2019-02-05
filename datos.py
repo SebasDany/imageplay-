@@ -44,5 +44,15 @@ def ventana( n,d,g,j, title):
     l = Label(v, text="TIEMPO : " + g, fg="orange", background="black").place(x=30, y=100)
     k = Label(v, text="FECHA : " + j, fg="orange", background="black").place(x=30, y=120)
 
+def comparar( respuesta, monim):
+
+    if (respuesta.lower()==monim.lower()):
+
+
+        #datos.crerar_archivo(jugador, contador, imnom, fecha)
+        #datos.ventana(jugador, imnom, contador, fecha, "Winenr")
+        print("es corecto")
+    else:
+        print("intentelo denuevo")
 
 
