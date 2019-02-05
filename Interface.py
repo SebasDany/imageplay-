@@ -59,8 +59,9 @@ def iniciar(contador=30):
         if (contador == 30):
             global etiquetaTitulo
             etiquetaTitulo = Label(ventana, text=cadena,
-                                   bg="teal", fg=colorFondo, width=40, font=("", "18"))
-            etiquetaTitulo.place(x=30, y=10)
+                                   bg="teal", fg=colorFondo, width=30, font=("", "18"))
+            etiquetaTitulo.place(x=20, y=10)
+
 
         time['text'] = contador
         proceso = time.after(1000, iniciar, (contador - 1))
@@ -148,19 +149,7 @@ def chose():
     im1 = PhotoImage(file="nula.png")
     etiqueta1 = Label(ventana, image=im1, width=200, height=200).place(x=220, y=60)
     etiqueta1.image=im1
-    #etiqueta2 = Label(ventana, image=im1, width=200, height=200).place(x=20, y=60)
-    #etiqueta2.image = im1
 
-    #etiqueta3 = Label(ventana, image=im1, width=200, height=200).place(x=20, y=260)
-    #etiqueta3.image = im1
-
-    #etiqueta4 = Label(ventana, image=im1, width=200, height=200).place(x=20, y=463)
-    #etiqueta4.image = im1
-
-   # etiqueta5 = Label(ventana, image=im1, width=200, height=200).place(x=220, y=463)
-    #etiqueta5.image = im1
-
-    #w.pack()
 
 #CENTRAR VENTANA
 def center(win):
@@ -193,8 +182,10 @@ def anadir_descripcion():
 #INTERFAZ
 ventana = Tk()
 #############Objeto validacion
-
-
+imh12 = PhotoImage(file="azules.png")
+fo = Label(ventana, image=imh12, width=980, height=675)
+fo.image=imh12
+fo.place(x=0, y=0)
 
 
 genero = StringVar()
@@ -207,42 +198,43 @@ colorFondo = "orange"
 colorLetra = "BLACK"
 colorBotones = "SpringGreen3"
 ventana.title("Image Play")
-ventana.geometry("820x698")
+ventana.geometry("770x675")
 ventana.configure(background = colorFondo)
-etiquetaTitulo= Label(ventana, text="BIENVENIDO",
-                      bg="teal", fg=colorFondo,width=60).place(x=190,y=10)
+etiquetaTitulo= Label(ventana, text=" Aquí se muestra  una pista de la Palabrita",
+                      bg="teal", fg=colorFondo,width=38,font=("", "14")).place(x=20,y=10)
 
 etiquetajug = Label(ventana, text="NOMBRE DEL JUGADOR", bg=colorFondo,
-                  fg=colorLetra,width=35, height=1).place(x=450, y=50)
+                  fg=colorLetra,width=40, height=1).place(x=450, y=210)
 #---->
-cajaju = Entry(ventana, width=46)
-cajaju.place(x=450, y=70)
+cajaju = Entry(ventana, width=47)
+cajaju.place(x=450, y=240)
 
-botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose, bg=colorBotones, width=40, height=1,
-                    fg=colorLetra).place(x=450, y=100)
+botonInIma = Button(ventana, text="INSERTAR UNA IMAGEN DE TU PC", command=chose, bg=colorBotones, width=39, height=1,
+                    fg=colorLetra).place(x=450, y=60)
 
 
 etiquetaT1 = Label(ventana, text="NOMBRE DE LA IMAGEN", bg=colorFondo,
-                  fg=colorLetra,width=35, height=1).place(x=450, y=150)
+                  fg=colorLetra,width=40, height=1).place(x=450, y=90)
 #---->
-cajanombre = Entry(ventana,  width=46)
-cajanombre.place(x=450, y=175)
+cajanombre = Entry(ventana,  width=47)
+cajanombre.place(x=450, y=120)
 
 
 
 etiquetaT2 = Label(ventana, text="DESCRIPCIÓN DE LA IMAGEN", bg=colorFondo,
-                  fg=colorLetra,width=36, height=1).place(x=450, y=250)
+                  fg=colorLetra,width=40, height=1).place(x=450, y=150)
 #---->
-cajadescripcion = Entry(ventana, width=46 )
-cajadescripcion.place(x=450, y=275)
+cajadescripcion = Entry(ventana, width=47 )
+cajadescripcion.place(x=450, y=180)
 
 
-
+etiquetaQUE = Label(ventana, text="¿QUE SE DEBE HACER?", bg=colorFondo,
+                  fg=colorLetra,width=40, height=1).place(x=450, y=290)
 
 
 #ayuda para jugar básica
 txtFrameinstruc = Frame(ventana, borderwidth=1, relief="sunken")
-txtinstruc = Text(txtFrameinstruc, wrap = NONE, height = 4, width = 36, borderwidth=1)
+txtinstruc = Text(txtFrameinstruc, wrap = NONE, height = 4, width = 34, borderwidth=1)
 vscroll = Scrollbar(txtFrameinstruc, orient=HORIZONTAL, command=txtinstruc.xview)
 vscroll01 = Scrollbar(txtFrameinstruc, orient=VERTICAL, command=txtinstruc.yview)
 txtinstruc['xscrollcommand'] = vscroll.set
@@ -255,13 +247,13 @@ txtFrameinstruc.place(x=450, y=330)
 txtinstruc.tag_add("here", "1.0", "7.4")
 txtinstruc.tag_add("start", "1.8", "1.13")
 txtinstruc.tag_config("here", background=colorBotones, foreground="blue")
-
+txtinstruc.config(state=DISABLED)
 etiquetaT3 = Label(ventana, text="DESCRIPCIÓN DE LA IMAGEN: ", bg=colorFondo,
-                  fg=colorLetra,width=50, height=1).place(x=410, y=430)
+                  fg=colorLetra,width=40, height=1).place(x=450, y=430)
 
 #Descripcion de la imagen
 txtdesi = Frame(ventana, borderwidth=1, relief="sunken")
-txtodesi = Text(txtdesi, wrap = NONE, height = 1, width = 36, borderwidth=1)
+txtodesi = Text(txtdesi, wrap = NONE, height = 1, width = 34, borderwidth=1)
 vscrolldei = Scrollbar(txtdesi, orient=HORIZONTAL, command=txtodesi.xview)
 vscrolldei01 = Scrollbar(txtdesi, orient=VERTICAL, command=txtodesi.yview)
 txtodesi['xscrollcommand'] = vscrolldei.set
@@ -274,13 +266,14 @@ txtdesi.place(x=450, y=455)
 txtodesi.tag_add("here", "1.0", "7.4")
 txtodesi.tag_add("start", "1.8", "1.13")
 txtodesi.tag_config("here", background=colorBotones, foreground="blue")
-
+txtodesi.config(state=DISABLED)
 
 
 etiquetaT4 = Label(ventana, text="ADIVINA: ", bg=colorFondo,
-                  fg=colorLetra,width=50, height=1).place(x=410, y=530)
+                  fg=colorLetra,width=40, height=1).place(x=450, y=530)
 
-
+cajares = Entry(ventana, width=47)
+cajares.place(x=450, y=560)
 
 
 
@@ -290,26 +283,29 @@ etiquetaT4 = Label(ventana, text="ADIVINA: ", bg=colorFondo,
 
 #ADIVINA LA PALABRA
 
-botoFinaliza = Button(ventana, text="FINALIZAR", bg=colorBotones,width=20, height=1,
-                       fg=colorLetra).place(x=610, y=665)
-botoIntentar = Button(ventana, text="INICIAR", bg=colorBotones,width=20, height=1,
-                       fg=colorLetra,command=iniciar).place(x=450, y=665)
-cajares = Entry(ventana, width=46)
-cajares.place(x=450, y=550)
-botonprobar = Button(ventana, text="Probar", bg=colorBotones,width=20, height=1,
-                       fg=colorLetra).place(x=450, y=600)
+botoFinaliza = Button(ventana, text="FINALIZAR", bg=colorBotones,width=17, height=1,
+                       fg=colorLetra).place(x=610, y=650)
+botoIntentar = Button(ventana, text="INICIAR JUEGO", bg=colorBotones,width=20, height=1,
+                       fg=colorLetra,command=iniciar).place(x=450, y=650)
+
+botonprobar = Button(ventana, text="PROBAR PALABRA INGRESADA", bg=colorBotones,width=40, height=1,
+                       fg=colorLetra).place(x=450, y=588)
 
 
 #REEMPLAZO DE IMAGEN
 label_principal=Label(ventana,width=60,height=70)
 label_principal.place(x=20,y=60)
 label_principal.pack
-imh = PhotoImage(file="descarga.png")
+#imh = PhotoImage(file="descarga.png")
+
+
+
+
 cron = Label(ventana, text="Time:",
-                 fg=colorFondo,font=("", "18")).place(x=620, y=10)
+                 fg=colorFondo,font=("", "18")).place(x=590, y=10)
 time = Label(ventana, fg='red', width=5, font=("", "18"))
-time.place(x=700, y=10)
-ventana.title("wm min/max")
+time.place(x=660, y=10)
+
 
 # this removes the maximize button
 ventana.resizable(0,0)
