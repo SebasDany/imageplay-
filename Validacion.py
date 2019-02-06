@@ -1,6 +1,6 @@
 class validacion():
- global nombre_imagen
- global descripcion_imagen
+ nombre_imagen=""
+ descripcion_imagen=""
  def __init__(self):
         print("Instanciando clase")
 
@@ -10,7 +10,13 @@ class validacion():
 
 
  def set_descripcion_imagen(self, descripcion):
-        self.descripcion_imagen=descripcion
+    self.descripcion_imagen=descripcion
+
+
+ def get_descripcion_imagen(self):
+    print(self.descripcion_imagen)
+    return self.descripcion_imagen
+
 
  def return_tamanio_de_palabra(self):
 

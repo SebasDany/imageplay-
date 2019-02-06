@@ -43,6 +43,7 @@ def ventana( n,d,g,j, title):
     lb = Label(v, text="IMAGEN : " + d, fg="orange", background="black").place(x=30, y=80)
     l = Label(v, text="TIEMPO : " + g, fg="orange", background="black").place(x=30, y=100)
     k = Label(v, text="FECHA : " + j, fg="orange", background="black").place(x=30, y=120)
+    v.resizable(0, 0)
 
 def comparar( respuesta, monim):
 
