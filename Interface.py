@@ -33,7 +33,7 @@ def finalizar():
     toggle_entry()
 
 def autores():
-       messagebox.showinfo("Autores","Sebastián Guandinango, Fausto Borja, Fabián Garrido")
+       messagebox.showinfo("Autores","Sebastián Guandinango: sguandinangod@est.ups.edu.ec \n Fausto Borja: fborjav@est.ups.edu.ec \n Fabián Garrido: fgarridom@est.ups.edu.ec")
 
 #SELECCION DE IMAGEN
 def probar():
