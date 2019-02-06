@@ -32,6 +32,9 @@ def finalizar():
     time.after_cancel(proceso)
     toggle_entry()
 
+def autores():
+       messagebox.showinfo("Autores","Sebastián Guandinango, Fausto Borja, Fabián Garrido")
+
 #SELECCION DE IMAGEN
 def probar():
     global proceso
@@ -385,6 +388,8 @@ botoIntentar = Button(ventana, text="INICIAR JUEGO", bg=colorBotones,width=20, h
 
 botonprobar = Button(ventana, text="PROBAR PALABRA INGRESADA", command=probar, bg=colorBotones,width=40, height=1,
                        fg=colorLetra).place(x=450, y=588)
+botonautores = Button(ventana, text="AUTORES", command=autores, bg=colorBotones,width=40, height=1,
+                       fg=colorLetra).place(x=450, y=615)
 
 
 
