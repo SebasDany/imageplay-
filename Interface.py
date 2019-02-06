@@ -2,7 +2,7 @@ from distutils import command
 from tkinter import *
 import time
 import Validacion
-import datos
+import Datos
 import os
 import shutil
 from tkinter import messagebox
@@ -26,8 +26,8 @@ def llenarcampodescrip():
     return valordes
 
 def finalizar():
-    datos.crerar_archivo(jugador, proceso, imnom, fecha)
-    datos.ventana(jugador, imnom, proceso, fecha, "you lost")
+    Datos.crerar_archivo(jugador, proceso, imnom, fecha)
+    Datos.ventana(jugador, imnom, proceso, fecha, "you lost")
 
     time.after_cancel(proceso)
     toggle_entry()
@@ -40,7 +40,7 @@ def probar():
     if ( cajanombre.get()==cajares.get()):
 
         time.after_cancel(proceso)
-        datos.ventana(cajaju.get(), cajanombre.get(), proceso, fecha, "Winner")
+        Datos.ventana(cajaju.get(), cajanombre.get(), proceso, fecha, "Winner")
         toggle_entry()
     else:
         etiquetaintente = Label(ventana, text="INTENTE OTRA VEZ :)", bg="BLACK",
@@ -92,7 +92,7 @@ def iniciar(contador=30):
     jugador = cajaju.get()
     imnom = cajanombre.get()
 
-    datos.crerar_archivo(jugador, "4", imnom, fecha)
+    Datos.crerar_archivo(jugador, "4", imnom, fecha)
 
     proceso = 30
     variable=""
@@ -147,8 +147,8 @@ def iniciar(contador=30):
 
         if (contador == 0):
             toggle_entry()
-            datos.crerar_archivo(jugador, proceso, imnom, fecha)
-            datos.ventana(jugador, imnom, proceso, fecha, "you lost")
+            Datos.crerar_archivo(jugador, proceso, imnom, fecha)
+            Datos.ventana(jugador, imnom, proceso, fecha, "you lost")
             cadena = ""
             for l in nombre_imagen:
                 cadena += l
